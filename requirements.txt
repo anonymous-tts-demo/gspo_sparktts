@@ -1,0 +1,33 @@
+# Core
+torch>=2.1.0
+transformers>=4.50.0
+datasets>=2.18.0
+accelerate>=0.30.0
+
+# TRL (GSPO)
+trl>=0.15.0
+
+# LoRA
+peft>=0.10.0
+
+# Audio
+soundfile>=0.12.0
+soxr>=0.3.0
+torchaudio>=2.1.0
+librosa>=0.10.0
+
+# ASR (WER evaluation)
+jiwer>=3.0.0
+
+# Data
+pandas>=2.0.0
+numpy>=1.24.0
+
+# Logging
+loguru>=0.7.0
+
+# Config
+pyyaml>=6.0
+
+# Optional: UTMOS (speech quality)
+# speechmos>=1.0.0

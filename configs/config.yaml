@@ -1,0 +1,72 @@
+# GSPO SparkTTS Training Configuration
+# ════════════════════════════════════════════════════════════════
+
+# ── Paths ──
+paths:
+  sparktts_model: "/data1/speech/nhandt23/06_binh/spark_based/Vi-SparkTTS-0.5B"
+  llm_backbone: "/data1/speech/nhandt23/06_binh/spark_based/Vi-SparkTTS-0.5B/LLM"
+  whisper_model: "/data1/speech/nhandt23/06_binh/models/openai--whisper-large-v3"
+  trl_library: "/data1/speech/nhandt23/06_binh/trl"
+  data_csv: "/data1/speech/nhandt23/06_binh/chatter_v2v/data/normalized/phoaudiobook/filtered_15k.csv"
+  wavs_dir: "/data1/speech/speechData/rawData/Public_Data/phoaudiobook/wavs"
+  output_dir: "/data1/speech/nhandt23/06_binh/gspo_sparktts/outputs"
+
+# ── Data ──
+data:
+  sample_rate: 16000
+  max_samples: 5000          # Number of training samples
+  dataset_format: "jsonl"
+
+# ── Baseline Evaluation ──
+baseline:
+  num_samples: 100           # Samples for baseline eval
+  use_cloning: false         # Voice cloning vs controllable TTS
+  skip_whisper: false        # Skip WER computation
+
+# ── GSPO Training ──
+gspo:
+  # GSPO-specific
+  importance_sampling_level: "sequence"
+  epsilon: 3.0e-4            # Left clipping bound
+  epsilon_high: 4.0e-4       # Right clipping bound
+  beta: 0.0                  # KL penalty coefficient
+  loss_type: "grpo"
+
+  # Training hyperparameters
+  learning_rate: 1.0e-6
+  num_train_epochs: 3
+  per_device_train_batch_size: 2
+  gradient_accumulation_steps: 4
+  num_generations: 4         # Group size for GSPO
+  max_completion_length: 2048
+  max_grad_norm: 1.0
+
+  # Generation
+  temperature: 0.8
+  top_p: 0.95
+
+  # Memory
+  bf16: true
+  gradient_checkpointing: true
+
+  # Logging
+  logging_steps: 1
+  save_steps: 100
+  save_total_limit: 3
+  log_completions: true
+
+# ── LoRA (optional) ──
+lora:
+  enabled: true
+  r: 16
+  lora_alpha: 32
+  target_modules: ["q_proj", "v_proj", "k_proj", "o_proj"]
+  lora_dropout: 0.05
+
+# ── Reward Function ──
+reward:
+  wer_weight: -1.0           # Negative: lower WER → higher reward
+  length_penalty_weight: -0.1
+  # Thêm SIM và UTMOS sau khi chạy baseline
+  # sim_weight: 0.5
+  # utmos_weight: 0.3
