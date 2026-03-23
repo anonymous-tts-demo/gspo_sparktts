@@ -187,7 +187,7 @@
     }
     .audio-col {
       flex: 1;
-      min-width: 200px;
+      min-width: 150px;
       text-align: center;
       display: flex;
       flex-direction: column;
@@ -195,15 +195,20 @@
     }
     .audio-col .model-label {
       font-family: Arial, sans-serif;
-      font-size: 0.82em;
+      font-size: 0.78em;
       font-weight: bold;
       color: #444;
       margin-bottom: 5px;
       text-transform: uppercase;
-      letter-spacing: 0.04em;
+      letter-spacing: 0.03em;
     }
-    .audio-col.ours-col .model-label { color: #1a5fa8; }
-    audio { width: 100%; height: 40px; }
+    .audio-col.ours-col .model-label {
+      color: #1a5fa8;
+      background: #e6f3ff;
+      padding: 1px 6px;
+      border-radius: 3px;
+    }
+    audio { width: 100%; height: 36px; }
 
     /* ── Algorithm box ── */
     .algorithm {
@@ -486,10 +491,18 @@
   <!-- ─── 4. AUDIO SAMPLES ─── -->
   <h2>4. Audio Samples</h2>
   <p>
-    We present six synthesized samples using the same reference speaker prompt.
-    Each example shows the input text, followed by audio from the baseline
-    Vi-SparkTTS-0.5B and our Vi-SparkRL model for direct perceptual comparison.
+    We present six synthesized samples comparing Vi-SparkRL against four baseline systems
+    using the same reference speaker prompt and input text.
   </p>
+
+  <!-- legend -->
+  <div style="display:flex; flex-wrap:wrap; gap:10px; margin-bottom:18px; font-family:Arial,sans-serif; font-size:0.82em;">
+    <span style="padding:2px 10px; border:1px solid #ccc; border-radius:3px; background:#fafafa;">Baseline Vi-SparkTTS</span>
+    <span style="padding:2px 10px; border:1px solid #ccc; border-radius:3px; background:#fafafa;">F5-TTS</span>
+    <span style="padding:2px 10px; border:1px solid #ccc; border-radius:3px; background:#fafafa;">Valtec-TTS</span>
+    <span style="padding:2px 10px; border:1px solid #ccc; border-radius:3px; background:#fafafa;">VietTTS</span>
+    <span style="padding:2px 10px; border:1px solid #ccc; border-radius:3px; background:#e6f3ff; color:#1a5fa8; font-weight:bold;">Vi-SparkRL (Ours)</span>
+  </div>
 
   <!-- Sample 1 -->
   <div class="sample-block">
@@ -501,6 +514,18 @@
       <div class="audio-col">
         <div class="model-label">Baseline Vi-SparkTTS</div>
         <audio controls><source src="assets/audio/visparkRL/sample_00.wav" type="audio/wav" /></audio>
+      </div>
+      <div class="audio-col">
+        <div class="model-label">F5-TTS</div>
+        <audio controls><source src="assets/audio/f5tts/sample_00.wav" type="audio/wav" /></audio>
+      </div>
+      <div class="audio-col">
+        <div class="model-label">Valtec-TTS</div>
+        <audio controls><source src="assets/audio/valtec-tts/sample_00.wav" type="audio/wav" /></audio>
+      </div>
+      <div class="audio-col">
+        <div class="model-label">VietTTS</div>
+        <audio controls><source src="assets/audio/viettts/sample_00.wav" type="audio/wav" /></audio>
       </div>
       <div class="audio-col ours-col">
         <div class="model-label">Vi-SparkRL (Ours)</div>
@@ -519,6 +544,18 @@
       <div class="audio-col">
         <div class="model-label">Baseline Vi-SparkTTS</div>
         <audio controls><source src="assets/audio/visparkRL/sample_01.wav" type="audio/wav" /></audio>
+      </div>
+      <div class="audio-col">
+        <div class="model-label">F5-TTS</div>
+        <audio controls><source src="assets/audio/f5tts/sample_01.wav" type="audio/wav" /></audio>
+      </div>
+      <div class="audio-col">
+        <div class="model-label">Valtec-TTS</div>
+        <audio controls><source src="assets/audio/valtec-tts/sample_01.wav" type="audio/wav" /></audio>
+      </div>
+      <div class="audio-col">
+        <div class="model-label">VietTTS</div>
+        <audio controls><source src="assets/audio/viettts/sample_01.wav" type="audio/wav" /></audio>
       </div>
       <div class="audio-col ours-col">
         <div class="model-label">Vi-SparkRL (Ours)</div>
@@ -539,6 +576,18 @@
         <div class="model-label">Baseline Vi-SparkTTS</div>
         <audio controls><source src="assets/audio/visparkRL/sample_02.wav" type="audio/wav" /></audio>
       </div>
+      <div class="audio-col">
+        <div class="model-label">F5-TTS</div>
+        <audio controls><source src="assets/audio/f5tts/sample_02.wav" type="audio/wav" /></audio>
+      </div>
+      <div class="audio-col">
+        <div class="model-label">Valtec-TTS</div>
+        <audio controls><source src="assets/audio/valtec-tts/sample_02.wav" type="audio/wav" /></audio>
+      </div>
+      <div class="audio-col">
+        <div class="model-label">VietTTS</div>
+        <audio controls><source src="assets/audio/viettts/sample_02.wav" type="audio/wav" /></audio>
+      </div>
       <div class="audio-col ours-col">
         <div class="model-label">Vi-SparkRL (Ours)</div>
         <audio controls><source src="assets/audio/visparkRL_2800/sample_02.wav" type="audio/wav" /></audio>
@@ -557,6 +606,18 @@
       <div class="audio-col">
         <div class="model-label">Baseline Vi-SparkTTS</div>
         <audio controls><source src="assets/audio/visparkRL/sample_03.wav" type="audio/wav" /></audio>
+      </div>
+      <div class="audio-col">
+        <div class="model-label">F5-TTS</div>
+        <audio controls><source src="assets/audio/f5tts/sample_03.wav" type="audio/wav" /></audio>
+      </div>
+      <div class="audio-col">
+        <div class="model-label">Valtec-TTS</div>
+        <audio controls><source src="assets/audio/valtec-tts/sample_03.wav" type="audio/wav" /></audio>
+      </div>
+      <div class="audio-col">
+        <div class="model-label">VietTTS</div>
+        <audio controls><source src="assets/audio/viettts/sample_03.wav" type="audio/wav" /></audio>
       </div>
       <div class="audio-col ours-col">
         <div class="model-label">Vi-SparkRL (Ours)</div>
@@ -577,6 +638,18 @@
         <div class="model-label">Baseline Vi-SparkTTS</div>
         <audio controls><source src="assets/audio/visparkRL/sample_04.wav" type="audio/wav" /></audio>
       </div>
+      <div class="audio-col">
+        <div class="model-label">F5-TTS</div>
+        <audio controls><source src="assets/audio/f5tts/sample_04.wav" type="audio/wav" /></audio>
+      </div>
+      <div class="audio-col">
+        <div class="model-label">Valtec-TTS</div>
+        <audio controls><source src="assets/audio/valtec-tts/sample_04.wav" type="audio/wav" /></audio>
+      </div>
+      <div class="audio-col">
+        <div class="model-label">VietTTS</div>
+        <audio controls><source src="assets/audio/viettts/sample_04.wav" type="audio/wav" /></audio>
+      </div>
       <div class="audio-col ours-col">
         <div class="model-label">Vi-SparkRL (Ours)</div>
         <audio controls><source src="assets/audio/visparkRL_2800/sample_04.wav" type="audio/wav" /></audio>
@@ -595,6 +668,18 @@
       <div class="audio-col">
         <div class="model-label">Baseline Vi-SparkTTS</div>
         <audio controls><source src="assets/audio/visparkRL/sample_05.wav" type="audio/wav" /></audio>
+      </div>
+      <div class="audio-col">
+        <div class="model-label">F5-TTS</div>
+        <audio controls><source src="assets/audio/f5tts/sample_05.wav" type="audio/wav" /></audio>
+      </div>
+      <div class="audio-col">
+        <div class="model-label">Valtec-TTS</div>
+        <audio controls><source src="assets/audio/valtec-tts/sample_05.wav" type="audio/wav" /></audio>
+      </div>
+      <div class="audio-col">
+        <div class="model-label">VietTTS</div>
+        <audio controls><source src="assets/audio/viettts/sample_05.wav" type="audio/wav" /></audio>
       </div>
       <div class="audio-col ours-col">
         <div class="model-label">Vi-SparkRL (Ours)</div>
