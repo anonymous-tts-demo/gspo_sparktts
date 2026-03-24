@@ -308,15 +308,6 @@
     R<sub>total</sub> = 2.0 &times;
     (&sum;<sub>i &isin; {mos, sim, wer, tone}</sub> w<sub>i</sub> &middot; r<sub>i</sub>) &minus; 1.0 &nbsp;&nbsp;&nbsp; (2)
   </div>
-  <ul class="reward-list">
-    <li><strong>UTMOS — Acoustic Quality (w = 0.4):</strong> UTMOS22-Strong predicted MOS, normalized from [1,5] to [0,1]:
-      <em>r<sub>mos</sub> = (clip(s<sub>mos</sub>, 1, 5) &minus; 1) / 4</em></li>
-    <li><strong>SIM — Speaker Similarity (w = 0.3):</strong> ECAPA-TDNN + WavLM cosine similarity:
-      <em>r<sub>sim</sub> = (cos(e<sub>ref</sub>, e<sub>gen</sub>) + 1) / 2</em></li>
-    <li><strong>WER — Intelligibility (w = 0.2):</strong> Whisper Large V3 word error rate:
-      <em>r<sub>wer</sub> = 1.0 &minus; min(WER(text<sub>ref</sub>, text<sub>hyp</sub>), 1.0)</em></li>
-    <li><strong>VietTone — Tone Accuracy (w = 0.1):</strong> Positional match rate of Unicode tone marks between reference and hypothesis transcription</li>
-  </ul>
 
   <h3>1.3 VietTone Reward</h3>
   <p>
@@ -439,7 +430,7 @@
   </p>
 
   <div class="figure">
-    <img src="assets/plots/results_bar_chart_comparison.png" alt="Comparative analysis bar chart" />
+    <img src="assets/plots/results_bar_chart.png" alt="Comparative analysis bar chart" />
     <div class="figure-caption">
       <strong>Fig. 2.</strong> Comparative analysis of synthesis quality metrics across different training paradigms,
       illustrating objective evaluation results on the PhoAudiobook test set.
